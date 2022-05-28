@@ -1,2 +1,7 @@
-GET https://api.github.com/user/starred?page=1
-Authorization: bearer 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
+@baseUrl = https://api.github.com
+@token = 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
+@acceptHeader = application/vnd.github.v3.html+json
+GET {{baseUrl}}/user/starred
+    ?page=1
+Authorization: bearer {{token}}
+Accept: {{acceptHeader}}

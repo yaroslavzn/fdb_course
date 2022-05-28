@@ -29,14 +29,14 @@ class GithubAuthenticator {
 
   static const clientId = 'e751da8c880c91078aa5';
   static const clientSecret = 'c5dcd730c6693c7488fc518ccc2dd0ad100a12b9';
-  final scopes = ['read:user', 'repo'];
-  final authorizationEndpoint =
+  static final scopes = ['read:user', 'repo'];
+  static final authorizationEndpoint =
       Uri.parse('https://github.com/login/oauth/authorize');
-  final accessTokenEndpoint =
+  static final accessTokenEndpoint =
       Uri.parse('https://github.com/login/oauth/access_token');
-  final revokeTokenEndpoint =
+  static final revokeTokenEndpoint =
       Uri.parse('https://api.github.com/applications/$clientId/token');
-  final callbackUrl = Uri.parse('http://localhost:300/callback');
+  static final callbackUrl = Uri.parse('http://localhost:300/callback');
 
   Future<Credentials?> getSignedInCredentials() async {
     try {
