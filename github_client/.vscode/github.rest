@@ -3,5 +3,6 @@
 @acceptHeader = application/vnd.github.v3.html+json
 GET {{baseUrl}}/user/starred
     ?page=1
+    &per_page=1
 Authorization: bearer {{token}}
 Accept: {{acceptHeader}}

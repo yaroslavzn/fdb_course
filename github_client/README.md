@@ -26,12 +26,18 @@ samples, guidance on mobile development, and a full API reference.
 - webview_flutter
 - flash
 - auto_route
+- json_annotation
+- sembast
+- path_provider
+- path
+- material_design_icons_flutter
 
 ## Used dev dependenices
 - build_runner
 - freezed
 - lint
 - auto_route_generator
+- json_serializable
 
 ## User credentials
 - Github access token - `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`

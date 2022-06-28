@@ -119,9 +119,7 @@ class GithubAuthenticator {
         }
       }
 
-      await _creadentialsStorage.clear();
-
-      return right(unit);
+      return clearCredentialsStorage();
     } on PlatformException {
       return left(const AuthFailure.storage());
     }
@@ -144,6 +142,16 @@ class GithubAuthenticator {
       return left(const AuthFailure.server());
     } on AuthorizationException catch (e) {
       return left(AuthFailure.server('${e.error}: ${e.description}'));
+    } on PlatformException {
+      return left(const AuthFailure.storage());
+    }
+  }
+
+  Future<Either<AuthFailure, Unit>> clearCredentialsStorage() async {
+    try {
+      await _creadentialsStorage.clear();
+
+      return right(unit);
     } on PlatformException {
       return left(const AuthFailure.storage());
     }
