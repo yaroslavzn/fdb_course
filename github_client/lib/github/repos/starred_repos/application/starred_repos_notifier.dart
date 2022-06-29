@@ -55,7 +55,7 @@ class StarredReposNotifier extends StateNotifier<StarredReposState> {
             ...r.entity,
           ],
         ),
-        hasNextPage: r.isFresh,
+        hasNextPage: r.hasNextPage ?? false,
       );
     });
   }

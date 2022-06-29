@@ -31,6 +31,8 @@ samples, guidance on mobile development, and a full API reference.
 - path_provider
 - path
 - material_design_icons_flutter
+- cached_network_image
+- shimmer
 
 ## Used dev dependenices
 - build_runner

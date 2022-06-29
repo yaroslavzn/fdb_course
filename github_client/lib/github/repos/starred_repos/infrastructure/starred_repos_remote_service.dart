@@ -48,9 +48,10 @@ class StarredReposRemoteService {
         final headers = GithubHeaders.parse(response);
         await _headersCache.saveHeaders(requestUri, headers);
 
-        final transformedData = (response.data as List<Map<String, dynamic>>)
-            .map((e) => GithubRepoDTO.fromJson(e))
-            .toList();
+        List<Map<String, dynamic>> responseData =
+            List.from(response.data as List);
+        final transformedData =
+            (responseData).map((e) => GithubRepoDTO.fromJson(e)).toList();
 
         return RemoteResponse.withNewData(
           transformedData,
