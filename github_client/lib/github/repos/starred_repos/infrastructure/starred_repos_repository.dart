@@ -22,9 +22,9 @@ class StarredReposRepositiry {
 
       return right(
         await remoteReposResponse.when(
-          noConnection: (maxPage) async => Fresh.no(
+          noConnection: () async => Fresh.no(
             await _localService.getPage(page).then((value) => value.toDomain()),
-            hasNextPage: page < maxPage,
+            hasNextPage: page < await _localService.getLocalPageCount(),
           ),
           notModified: (maxPage) async => Fresh.yes(
             await _localService.getPage(page).then((value) => value.toDomain()),

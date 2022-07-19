@@ -42,4 +42,10 @@ class StarredReposLocalService {
         )
         .toList();
   }
+
+  Future<int> getLocalPageCount() async {
+    final reposCount = await _store.count(_sembastDatabase.instance);
+
+    return (reposCount / PaginationConfig.maxPerPage).ceil();
+  }
 }
