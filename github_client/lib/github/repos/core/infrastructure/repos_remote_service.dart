@@ -39,10 +39,9 @@ abstract class ReposRemoteService {
         final headers = GithubHeaders.parse(response);
         await _headersCache.saveHeaders(requestUri, headers);
 
-        final List<Map<String, dynamic>> responseData =
-            List.from(jsonDataSelector(response.data));
-        final transformedData =
-            responseData.map((e) => GithubRepoDTO.fromJson(e)).toList();
+        final transformedData = jsonDataSelector(response.data)
+            .map((e) => GithubRepoDTO.fromJson(e))
+            .toList();
 
         return RemoteResponse.withNewData(
           transformedData,

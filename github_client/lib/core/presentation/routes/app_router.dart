@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:github_client/auth/presentation/authorization_page.dart';
 import 'package:github_client/auth/presentation/sign_in_page.dart';
+import 'package:github_client/github/repos/searched_repos/presentation/searched_repos_page.dart';
 import 'package:github_client/github/repos/starred_repos/presentation/starred_repos_page.dart';
 import 'package:github_client/splash/presentation/splash_page.dart';
 
@@ -11,6 +12,7 @@ import 'package:github_client/splash/presentation/splash_page.dart';
     AutoRoute(page: SignInPage, path: '/sign-in'),
     AutoRoute(page: AuthorizationPage, path: '/auth'),
     AutoRoute(page: StarredReposPage, path: '/starred'),
+    AutoRoute(page: SearchedReposPage, path: '/search'),
   ],
 )
 class $AppRouter {}

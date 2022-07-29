@@ -33,6 +33,7 @@ samples, guidance on mobile development, and a full API reference.
 - material_design_icons_flutter
 - cached_network_image
 - shimmer
+- material_floating_search_bar
 
 ## Used dev dependenices
 - build_runner
