@@ -21,7 +21,7 @@ class SearchHistoryRepository {
         )
         .onSnapshots(_sembastDatabase.instance)
         .map(
-          (records) => records.map((record) => record.value).toList(),
+          (records) => records.reversed.map((record) => record.value).toList(),
         );
   }
 
@@ -44,7 +44,7 @@ class SearchHistoryRepository {
 
   Future<void> _addSearchTerm(String term, DatabaseClient dbClient) async {
     final termKey = await _store.findKey(
-      _sembastDatabase.instance,
+      dbClient,
       finder: Finder(
         filter: Filter.custom((record) => (record.value as String) == term),
       ),
@@ -55,12 +55,12 @@ class SearchHistoryRepository {
       return;
     }
 
-    await _store.add(_sembastDatabase.instance, term);
-    final count = await _store.count(_sembastDatabase.instance);
+    await _store.add(dbClient, term);
+    final count = await _store.count(dbClient);
 
     if (count > searchLimit) {
       await _store.delete(
-        _sembastDatabase.instance,
+        dbClient,
         finder: Finder(
           limit: count - searchLimit,
         ),
@@ -70,7 +70,7 @@ class SearchHistoryRepository {
 
   Future<void> _deleteSearchTerm(String term, DatabaseClient dbClient) async {
     await _store.delete(
-      _sembastDatabase.instance,
+      dbClient,
       finder: Finder(
         filter: Filter.custom((record) => (record.value as String) == term),
       ),
