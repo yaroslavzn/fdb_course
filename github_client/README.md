@@ -41,6 +41,3 @@ samples, guidance on mobile development, and a full API reference.
 - lint
 - auto_route_generator
 - json_serializable
-
-## User credentials
-- Github access token - `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`
